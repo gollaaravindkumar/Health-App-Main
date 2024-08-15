@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<p lang="en">
+<head>
+    <title>HealthApp | Assessment</title>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://th.bing.com/th/id/OIP.fGbtLh7QYNd4_TuIqPB9_QHaHa?rs=1&pid=ImgDetMain">
+    
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <script type="text/javascript" language="JavaScript">
+    window.onload = function () {
+    document.getElementById("download")
+        .addEventListener("click", () => {
+            const invoice = this.document.getElementById("assess");
+            console.log(invoice);
+            console.log(window);
+            var opt = {
+                margin: 1,
+                filename: 'Cancer_Assessment.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+            };
+            html2pdf().from(invoice).set(opt).save();
+        })
+   }</script>
+    <style>
+        body {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            color: #5a5a5a;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background-color: rgb(181, 211, 227);
+        }
+        .navbar-brand {
+            font-size: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        .pricing-header {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .card-deck .card {
+            min-width: 220px;
+        }
+        .themed-container {
+            padding: 15px;
+            margin-bottom: 30px;
+            background-color: white;
+            border: 1px solid rgba(0, 123, 255, .2);
+        }
+        .rounded-lg {
+            border-radius: 1rem;
+            text-align: center;
+            background-color: rgba(0, 123, 255, .15);
+            border: 1px solid rgba(0, 123, 255, .2);
+            margin: 0px 20px 20px 20px;
+            padding: 20px;
+        }
+        @media (max-width: 768px) {
+            .pricing-header h1 {
+                font-size: 1.5rem;
+            }
+            .themed-container {
+                padding: 10px;
+            }
+            .rounded-lg {
+                margin: 10px;
+                padding: 10px;
+            }
+        }
+        @media (max-width: 576px) {
+            .pricing-header h1 {
+                font-size: 1.2rem;
+            }
+            .themed-container {
+                padding: 5px;
+            }
+            .rounded-lg {
+                margin: 5px;
+                padding: 5px;
+            }
+            .row {
+                margin-bottom: 20px;
+            }
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div id="assess">
+        
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <h1 class="display-5">Health and Wellness 
+                {% if high_risk %}
+                    <img style="max-width: 100px" src="https://www.pngmart.com/files/21/Red-Alert-PNG-Clipart.png">
+                {% endif %}
+            </h1>
+            <p class="lead">Maintain a healthy lifestyle to reduce future risks</p>
+        </div>
+        <div class="container themed-container">
+            <h1 style="text-align: center;">{{prediction_text}}</h1>
+        </div>
+
+        {% if high_risk %}
+            <div class="row">
+            <!-- Image Section -->
+            
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;">
+                        <img  style="height: 100%; width: 100%;" src="https://res.cloudinary.com/dcrupowic/image/upload/v1723738734/rtjc5r3s_dcwxxi.png" /><br/><br/>
+                    </div>
+                </div>
+
+                 <!-- Description Section -->
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;">
+                        <h5><b>Brief Description:</b></h5>
+                        <p>Cardiovascular diseases (CVDs) are a group of disorders of the heart and blood vessels. They include:</p>
+                        <ul style="list-style-position: inside; text-align: left; display: inline-block;">
+                            <li>Coronary heart disease - a disease of the blood vessels supplying the heart muscle</li>
+                            <li>Cerebrovascular disease - a disease of the blood vessels supplying the brain</li>
+                            <li>Peripheral arterial disease - a disease of blood vessels supplying the arms and legs</li>
+                            <li>Rheumatic heart disease - damage to the heart muscle and heart valves from rheumatic fever, caused by streptococcal bacteria</li>
+                            <li>Congenital heart disease - birth defects that affect the normal development and functioning of the heart caused by malformations of the heart structure from birth</li>
+                            <li>Deep vein thrombosis and pulmonary embolism - blood clots in the leg veins, which can dislodge and move to the heart and lungs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Symptoms of heart attacks and strokes:</b>
+                            <img style="max-width: 100px" src="https://static.vecteezy.com/system/resources/previews/002/594/161/non_2x/new-normal-caution-symptoms-after-coronavirus-disease-covid-19-blue-silhouette-icon-free-vector.jpg">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            <p>Often, there are no symptoms of the underlying disease of the blood vessels. A heart attack or stroke may be the first sign of underlying disease.</p>
+                            <p>Symptoms of a heart attack include:.</p>
+                            <ul style="list-style-position: inside; text-align: left; display: inline-block;">
+                                <li>Pain or discomfort in the centre of the chest</li>
+                                <li>Pain or discomfort in the arms, the left shoulder, elbows, jaw, or back</li>
+                            </ul>
+                            <p>The most common symptom of a stroke is sudden weakness of the face, arm, or leg, most often on one side of the body. Other symptoms include sudden onset of: </p>
+                            <ul style="list-style-position: inside; text-align: left; display: inline-block;">
+                                <li>Numbness of the face, arm, or leg, especially on one side of the body</li>
+                                <li>Confusion, difficulty speaking or understanding speech</li>
+                                <li>Difficulty seeing with one or both eyes</li>
+                                <li>Difficulty walking, dizziness, and/or loss of balance or coordination</li>
+                                <li>Severe headache with no known cause</li>
+                                <li>Fainting or unconsciousness</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            
+            
+
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Causes:</b>
+                            <img style="max-width: 100px" src="https://res.cloudinary.com/dcrupowic/image/upload/v1723740242/hxk605nm_txhht3.png">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            
+                            <p>Common causes of Heart Disease or conditions that can lead to them include:</p>
+                            <ul style="list-style-position: inside;">
+                                <li>Heart muscle disease, called cardiomyopathy</li>
+                                <li>Coronary artery disease</li>
+                                <li>Diabetes</li>
+                                <li>Illegal drugs such as cocaine</li>
+                                <li>Emotional stress</li>
+                                <li>Too much alcohol or caffeine</li>
+                                <li>Heart conditions present at birth, called congenital heart defects</li>
+                                <li>High blood pressure</li>
+                                <li>Smoking</li>
+                                <li>Heart valve disease</li>
+                                <li>Some medicines, herbs, and supplements</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        
+
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Prevention:</b>
+                            <img style="max-width: 90px" src="https://cdn-icons-png.flaticon.com/512/4310/4310387.png">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            <p>The same lifestyle changes used to manage heart disease also may help prevent it. Try these heart-healthy tips:</p>
+        
+                            <ul style="list-style-position: inside; text-align: left; display: inline-block;">
+                                <li>Don't smoke</li>
+                                <li>Eat a diet that's low in salt and saturated fat</li>
+                                <li>Exercise at least 30 minutes a day on most days of the week</li>
+                                <li>Maintain a healthy weight</li>
+                                <li>Reduce and manage stress</li>
+                                <li>Control high blood pressure, high cholesterol, and diabetes</li>
+                                <li>Get good sleep. Adults should aim for 7 to 9 hours daily</li>
+                            </ul>
+                        
+                        </div>
+                    </div>
+                </div>
+            
+            
+
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Treatment:</b>
+                            <img style="max-width: 100px" src="https://www.efsanemed.com/wp-content/uploads/2021/06/doctor.png">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            <p>Heart disease treatment depends on the cause and type of heart damage. Treatment for heart disease may include:</p>
+                            <ul style="list-style-position: inside;">
+                                <li>Lifestyle changes such as eating a diet low in salt and saturated fat, getting more exercise, and not smoking</li>
+                                <li>Medicines</li>
+                                <li>A heart procedure</li>
+                                <li>Heart surgery</li>
+                                <li>Heart Transplantation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        
+
+
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Nutrition:</b>
+                            <img style="max-width: 90px" src="https://res.cloudinary.com/dcrupowic/image/upload/v1723494367/me9bjdfh_yxybsh.png">
+                        </h5>
+                        
+                        <div style="display: inline-block; text-align: left;">
+                            <h6>To maintain a healthy heart, it is important to eat a balanced diet that emphasizes</h6>
+                            <ul style="list-style-position: inside;">
+                                <li>A wide variety of fruits and vegetables</li>
+                                <li>Whole grains and products made up mostly of whole grains</li>
+                                <li>Healthy sources of protein (mostly plants such as legumes and nuts; fish and seafood; low-fat or nonfat dairy; and, if you eat meat and poultry, ensuring it is lean and unprocessed)</li>
+                                <li>Liquid plant oils such as olive oil rather than tropical oils such as palm oil</li>
+                                <li>Minimizing added sugars and salt</li>
+                            </ul>
+                            <p>A low-saturated fat, high-fibre, high plant food diet can substantially reduce the risk of developing heart disease</p>
+                        </div>
+                    
+                        
+                        
+                    </div>
+                </div>
+            
+            
+
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Medication:</b>
+                            <img style="max-width: 100px" src="https://cdn2.iconfinder.com/data/icons/medical-flat-icons-part-1/513/1-1024.png">
+                        </h5>
+                        <div style="display: inline-block; text-align: left; width: 80%;">
+                            <h6><b>The Big 6 Heart Medications</b></h6>
+                            <p>
+                                
+                                <a href="https://www.apollopharmacy.in/medicine/ib-statin-5mg-tab-10-s?doNotTrack=true" target="_blank">Statins</a> - to lower LDL cholesterol </p>
+                            <p> <a href="https://www.apollopharmacy.in/medicine/clopidogrel-75mg-aspirin-75mg-tab-10-s?doNotTrack=true" target="_blank">Aspirin</a> - to prevent blood clots  </p> 
+                                <a href="https://www.apollopharmacy.in/medicine/clopdril-75-tablet-10-s?doNotTrack=true" target="_blank">Clopidogrel</a> - to prevent blood clots </p> 
+                                <a href="https://www.apollopharmacy.in/medicine/warf-5mg-tablet-30-s?doNotTrack=true" target="_blank">Warfarin</a> - to prevent blood clots </p> 
+                                <a href="https://www.apollopharmacy.in/medicine/tazlocbeta-50mg-tablet?doNotTrack=true" target="_blank">Beta-blockers </a> - to treat heart attack and heart failure and sometimes used to lower blood pressure </p> 
+                                <a href="https://www.apollopharmacy.in/medicine/augnet-625-tab-10-s?doNotTrack=true" target="_blank">ACE inhibitors</a> - to treat heart failure and lower blood pressure </p> 
+                            </p>
+                        
+                            <h6 style="margin-top: 20px;"><b>Surgery or other procedures</b></h6>
+                            <p>Some people with heart disease may need a heart procedure or surgery. The type of treatment depends on the type of heart disease and how much damage has happened to the heart.</p>
+                            
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+        {% else %}
+
+
+            <div class="row">
+                <div class="col-md-12 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Healthy Living Recommendations </b>
+                            <img style="max-width: 100px" src="https://tiermaker.com/images/templates/7255581608722513.jpeg">
+                        </h5>
+                        <div style="display: inline-block; text-align: left; width: 80%;">
+                            
+                            <h6><b>1. Healthy Diet:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Eat a balanced diet rich in fruits, vegetables, whole grains, and lean proteins.</li>
+                                <li>Limit intake of processed and sugary foods.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>2. Regular Exercise:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Engage in regular physical activity like walking, jogging, or cycling for at least 30 minutes a day, five times a week.</li>
+                                <li>Include strength training exercises to maintain muscle mass.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>3. Regular Screenings:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Continue regular breast self-exams and mammograms as recommended.</li>
+                                <li>Schedule routine health check-ups to monitor overall well-being.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>4. Healthy Lifestyle Choices:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Avoid smoking and exposure to secondhand smoke.</li>
+                                <li>Limit alcohol consumption to reduce the risk of various diseases.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>5. Mental and Emotional Well-being:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Practice stress-reduction techniques like yoga, meditation, or deep breathing.</li>
+                                <li>Maintain strong social connections with family, friends, and support groups.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>6. Maintain a Healthy Weight:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Aim to achieve and maintain a healthy weight.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>7. Hormone Replacement Therapy (HRT) Considerations:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>If on HRT, discuss risks and benefits with your healthcare provider.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>8. Sun Protection:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Use sunscreen and protective clothing to reduce the risk of skin cancer.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>9. Adequate Sleep:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Ensure 7-8 hours of quality sleep per night.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>10. Vaccinations:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Ensure all recommended vaccinations are up to date, including the HPV vaccine.</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <p style="text-align: center;">Click <a href="https://www.mayoclinic.org/diseases-conditions/heart-disease/symptoms-causes/syc-20353118">here</a> to learn more about Heart Disease</p>
+        <p style="text-align: center;">&copy;healthapp.com</p>
+    </div>
+    <br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-primary btn-lg" id="download">Download</button>
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

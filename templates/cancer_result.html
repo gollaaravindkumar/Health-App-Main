@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<p lang="en">
+<head>
+    <title>HealthApp | Assessment</title>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://th.bing.com/th/id/OIP.fGbtLh7QYNd4_TuIqPB9_QHaHa?rs=1&pid=ImgDetMain">
+    
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <script type="text/javascript" language="JavaScript">
+    window.onload = function () {
+    document.getElementById("download")
+        .addEventListener("click", () => {
+            const invoice = this.document.getElementById("assess");
+            console.log(invoice);
+            console.log(window);
+            var opt = {
+                margin: 1,
+                filename: 'Cancer_Assessment.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+            };
+            html2pdf().from(invoice).set(opt).save();
+        })
+   }</script>
+    <style>
+        body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #5a5a5a;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background-color: rgb(181,211,227);
+}
+
+nav {
+    font-family: sans-serif;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.container {
+    max-width: 960px;
+}
+
+.pricing-header {
+    max-width: 700px;
+}
+
+.card-deck .card {
+    min-width: 220px;
+}
+
+.themed-container {
+    padding: 15px;
+    margin-bottom: 30px;
+    background-color: white;
+    border: 1px solid rgba(0, 123, 255, .2);
+}
+.rounded-lg {
+    border-radius: 1rem;
+    text-align: center;
+    background-color: rgba(0, 123, 255, .15);
+    border: 1px solid rgba(0, 123, 255, .2);
+   margin: 0px 20px 20px 20px; /* Add this line */
+    padding: 20px; /* Optional: Adds padding inside the container */
+}
+
+    </style>
+</head>
+<body>
+    <div id="assess">
+        
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <h1 class="display-5">Health and Wellness 
+                {% if high_risk %}
+                    <img style="max-width: 100px" src="https://www.pngmart.com/files/21/Red-Alert-PNG-Clipart.png">
+                {% endif %}
+            </h1>
+            <p class="lead">Maintain a healthy lifestyle to reduce future risks</p>
+        </div>
+        <div class="container themed-container">
+            <h1 style="text-align: center;">{{prediction_text}}</h1>
+        </div>
+
+        {% if high_risk %}
+            <div class="row">
+            <!-- Image Section -->
+            
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 75%;">
+                        <img  style="height: 100%; width: 100%;" src="https://www.term-life-online.com/images/shutterstock_489700399-2.jpg" /><br/><br/>
+                    </div>
+                </div>
+
+                 <!-- Description Section -->
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 75%;">
+                        <h5><b>Brief Description:</b></h5>
+                        <p>Breast cancer is a disease in which abnormal breast cells grow out of control and form tumors. If left unchecked, the tumors can spread throughout the body and become fatal.
+                        Breast cancer cells begin inside the milk ducts and/or the milk-producing lobules of the breast. The earliest form (in situ) is not life-threatening and can be detected in early stages. Cancer cells can spread into nearby breast tissue (invasion). This creates tumors that cause lumps or thickening. 
+                        Invasive cancers can spread to nearby lymph nodes or other organs (metastasize). Metastasis can be life-threatening and fatal.
+                        Treatment is based on the person, the type of cancer and its spread. Treatment combines surgery, radiation therapy, and medications.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Signs and Symptoms:</b>
+                            <img style="max-width: 100px" src="https://static.vecteezy.com/system/resources/previews/002/594/161/non_2x/new-normal-caution-symptoms-after-coronavirus-disease-covid-19-blue-silhouette-icon-free-vector.jpg">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            <p>Most people will not experience any symptoms when the cancer is still early, hence the importance of early detection. Breast cancer can have combinations of symptoms, especially when it is more advanced.</p>
+                            <p>Symptoms of breast cancer can include:</p>
+                            <ul style="list-style-position: inside; text-align: left; display: inline-block;">
+                                <li>A breast lump or thickening, often without pain</li>
+                                <li>Change in size, shape, or appearance of the breast</li>
+                                <li>Dimpling, redness, pitting, or other changes in the skin</li>
+                                <li>Change in nipple appearance or the skin surrounding the nipple (areola)</li>
+                                <li>Abnormal or bloody fluid from the nipple</li>
+                            </ul>
+                            <p>People with an abnormal breast lump should seek medical care, even if the lump does not hurt.  </p>
+                        </div>
+                    </div>
+                </div>
+            
+            
+
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Causes:</b>
+                            <img style="max-width: 50px" src="https://th.bing.com/th/id/OIP.2tRNVCpv-qizkN6S1MU-7wAAAA?rs=1&pid=ImgDetMain">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            
+                            <p>The exact cause is not known.
+                                The risk factors include:</p>
+                            <ul style="list-style-position: inside;">
+                                <li>Family history</li>
+                                <li>Hormonal changes</li>
+                                <li>Age - at more risk after 40 years of age</li>
+                                <li>Personal history of breast cancer: A cancer in one breast increases the chances of having cancer in the other breast</li>
+                                <li>Lifestyle, including excess of alcohol consumption</li>
+                                <li>Environmental factors, including exposure to radiation</li>
+                                <li>Obesity and overweight</li>
+                                <li>Menarche: Having periods at a younger age and menopause at an older age</li>
+                                <li>Pregnancy: Becoming pregnant at an older age or never being pregnant</li>
+                                <li>Hormone use, including long-term contraceptive use or postmenopausal hormone therapy</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        
+
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Prevention:</b>
+                            <img style="max-width: 90px" src="https://cdn-icons-png.flaticon.com/512/4310/4310387.png">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            <p>Preventive measures involves healthy habits such as:</p>
+        
+                            <ul style="list-style-position: inside; text-align: left; display: inline-block;">
+                                <li>Eat healthy and nutritious food</li>
+                                <li>Avoid alcohol</li>
+                                <li>Practice gentle exercises upon doctor's advice</li>
+                                <li>Visit doctor for regular examination</li>
+                                <li>Preventive surgery may be recommended in women with high risk</li>
+                                <li>To reduce the risk of developing cancer get the pre screening done</li>
+                            </ul>
+                        
+                        </div>
+                    </div>
+                </div>
+            
+            
+
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Treatment:</b>
+                            <img style="max-width: 100px" src="https://www.efsanemed.com/wp-content/uploads/2021/06/doctor.png">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            <p>Treatment for breast cancer depends on the subtype of cancer and how much it has spread outside of the breast to lymph nodes (stages II or III) or to other parts of the body (stage IV).</p>
+                            <p>Doctors combine treatments to minimize the chances of the cancer coming back (recurrence). These include:</p>
+                            <ul style="list-style-position: inside;">
+                                <li>Surgery to remove the breast tumor</li>
+                                <li>Radiation therapy to reduce recurrence risk in the breast and surrounding tissues</li>
+                                <li>Medications to kill cancer cells and prevent spread, including hormonal therapies, chemotherapy, or targeted biological therapies</li>
+                            </ul>
+                            <p>Treatments for breast cancer are more effective and are better tolerated when started early and taken to completion.</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        
+
+
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Nutrition:</b>
+                            <img style="max-width: 90px" src="https://res.cloudinary.com/dcrupowic/image/upload/v1723494367/me9bjdfh_yxybsh.png">
+                        </h5>
+                        <h5 style="margin-top: 20px;"><b>FOODS TO EAT</b></h5>
+                        <div style="display: inline-block; text-align: left;">
+                            <h6><b>Foods to eat:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Foods rich in fiber such as whole grains, beans, and legumes</li>
+                                <li>Foods rich in vitamin D like beef liver, cheese, and egg yolk</li>
+                                <li>Low-fat dairy products and milk</li>
+                                <li>Foods with anti-inflammatory properties like spices</li>
+                            </ul>
+                        </div>
+                    
+                        <h5 style="margin-top: 20px;"><b>FOODS TO AVOID</b></h5>
+                        <div style="display: inline-block; text-align: left;">
+                            <h6><b>Foods to avoid:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Alcoholic drinks</li>
+                                <li>Foods with high sugar content like sodas, candies, and sweets</li>
+                                <li>Foods with high fat content like fried food, crackers, and processed food</li>
+                                <li>Red meat</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+            
+
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Medication:</b>
+                            <img style="max-width: 100px" src="https://cdn2.iconfinder.com/data/icons/medical-flat-icons-part-1/513/1-1024.png">
+                        </h5>
+                        <div style="display: inline-block; text-align: left; width: 80%;">
+                            <h6><b>Chemotherapy</b></h6>
+                            <p>Drugs may be recommended before or after surgery to reduce the mass size and prevent spread or recurrence.</p>
+                            <p>
+                                Common drugs: 
+                                <a href="https://www.apollopharmacy.in/medicine/capibine-500mg-tablet-10-s?doNotTrack=true" target="_blank">Capecitabine</a>, 
+                                <a href="https://www.apollopharmacy.in/medicine/carboplatin-150mg-injection-15ml?doNotTrack=true" target="_blank">Carboplatin</a>, 
+                                <a href="https://www.apollopharmacy.in/medicine/doxorubin-10mg-5ml-inj?doNotTrack=true" target="_blank">Doxorubicin</a>, 
+                                <a href="https://www.apollopharmacy.in/medicine/vinelbine-50-mg-inj-vial?doNotTrack=true" target="_blank">Vinorelbine</a>
+                            </p>
+                        
+                            <h6 style="margin-top: 20px;"><b>Hormone Therapy</b></h6>
+                            <p>Drugs used in hormone therapy help regulate the proliferation of hormone-sensitive cancer cells and prevent the production of hormones or reduce their action.</p>
+                            <p>
+                                Common drugs: 
+                                <a href="https://www.apollopharmacy.in/medicine/fiona-60mg-tablet?doNotTrack=true" target="_blank">Raloxifene</a>, 
+                                <a href="https://www.apollopharmacy.in/medicine/mamofen-20mg-tablet?doNotTrack=true" target="_blank">Tamoxifen</a>, 
+                                <a href="https://www.apollopharmacy.in/medicine/aveva-250-mg-injection-5-ml?doNotTrack=true" target="_blank">Fulvestrant</a>, 
+                                <a href="https://www.apollopharmacy.in/medicine/leupo-11-25-mg-injection-1-s?doNotTrack=true" target="_blank">Leuprolide</a>
+                            </p>
+                
+                            <h6 style="margin-top: 20px;"><b>Radiation Therapy</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Uses high-powered energy rays to destroy cancer cells.</li>
+                                <li>Can be done using a machine or by implanting a radioactive material inside the tumor mass.</li>
+                            </ul>
+                
+                            <h6 style="margin-top: 20px;"><b>Surgery (In Severe Cases)</b></h6>
+                            <p><b>Lumpectomy:</b> The entire tumor mass and some of the surrounding healthy tissues are removed.</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+        {% else %}
+
+
+            <div class="row">
+                <div class="col-md-12 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Healthy Living Recommendations </b>
+                            <img style="max-width: 100px" src="https://tiermaker.com/images/templates/7255581608722513.jpeg">
+                        </h5>
+                        <div style="display: inline-block; text-align: left; width: 80%;">
+                            
+                            <h6><b>1. Healthy Diet:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Eat a balanced diet rich in fruits, vegetables, whole grains, and lean proteins.</li>
+                                <li>Limit intake of processed and sugary foods.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>2. Regular Exercise:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Engage in regular physical activity like walking, jogging, or cycling for at least 30 minutes a day, five times a week.</li>
+                                <li>Include strength training exercises to maintain muscle mass.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>3. Regular Screenings:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Continue regular breast self-exams and mammograms as recommended.</li>
+                                <li>Schedule routine health check-ups to monitor overall well-being.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>4. Healthy Lifestyle Choices:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Avoid smoking and exposure to secondhand smoke.</li>
+                                <li>Limit alcohol consumption to reduce the risk of various diseases.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>5. Mental and Emotional Well-being:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Practice stress-reduction techniques like yoga, meditation, or deep breathing.</li>
+                                <li>Maintain strong social connections with family, friends, and support groups.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>6. Maintain a Healthy Weight:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Aim to achieve and maintain a healthy weight.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>7. Hormone Replacement Therapy (HRT) Considerations:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>If on HRT, discuss risks and benefits with your healthcare provider.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>8. Sun Protection:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Use sunscreen and protective clothing to reduce the risk of skin cancer.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>9. Adequate Sleep:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Ensure 7-8 hours of quality sleep per night.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>10. Vaccinations:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Ensure all recommended vaccinations are up to date, including the HPV vaccine.</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <p style="text-align: center;">Click <a href="https://www.mayoclinic.org/diseases-conditions/breast-cancer/symptoms-causes/syc-20352470">here</a> to learn more about Breast Cancer</p>
+        <p style="text-align: center;">&copy;healthapp.com</p>
+    </div>
+    <br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-primary btn-lg" id="download">Download</button>
+</body>
+</html>

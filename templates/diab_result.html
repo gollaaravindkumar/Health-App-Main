@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<p lang="en">
+<head>
+    <title>HealthApp | Assessment</title>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://th.bing.com/th/id/OIP.fGbtLh7QYNd4_TuIqPB9_QHaHa?rs=1&pid=ImgDetMain">
+    
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <script type="text/javascript" language="JavaScript">
+    window.onload = function () {
+    document.getElementById("download")
+        .addEventListener("click", () => {
+            const invoice = this.document.getElementById("assess");
+            console.log(invoice);
+            console.log(window);
+            var opt = {
+                margin: 1,
+                filename: 'Cancer_Assessment.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+            };
+            html2pdf().from(invoice).set(opt).save();
+        })
+   }</script>
+    <style>
+        body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #5a5a5a;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background-color: rgb(181,211,227);
+}
+
+nav {
+    font-family: sans-serif;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.container {
+    max-width: 960px;
+}
+
+.pricing-header {
+    max-width: 700px;
+}
+
+.card-deck .card {
+    min-width: 220px;
+}
+
+.themed-container {
+    padding: 15px;
+    margin-bottom: 30px;
+    background-color: white;
+    border: 1px solid rgba(0, 123, 255, .2);
+}
+.rounded-lg {
+    border-radius: 1rem;
+    text-align: center;
+    background-color: rgba(0, 123, 255, .15);
+    border: 1px solid rgba(0, 123, 255, .2);
+   margin: 0px 20px 20px 20px; /* Add this line */
+    padding: 20px; /* Optional: Adds padding inside the container */
+}
+
+    </style>
+</head>
+<body>
+    <div id="assess">
+        
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <h1 class="display-5">Health and Wellness 
+                {% if high_risk %}
+                    <img style="max-width: 100px" src="https://www.pngmart.com/files/21/Red-Alert-PNG-Clipart.png">
+                {% endif %}
+            </h1>
+            <p class="lead">Maintain a healthy lifestyle to reduce future risks</p>
+        </div>
+        <div class="container themed-container">
+            <h1 style="text-align: center;">{{prediction_text}}</h1>
+        </div>
+
+        {% if high_risk %}
+            <div class="row">
+            <!-- Image Section -->
+            
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 75%;">
+                        <img  style="height: 100%; width: 100%;" src="https://www.viezec.com/wp-content/uploads/2023/09/Diabetes-and-its-Associated-Complications-A-Brief-Overview.jpg" /><br/><br/>
+                    </div>
+                </div>
+
+                 <!-- Description Section -->
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 75%;">
+                        <h5><b>Brief Description:</b></h5>
+                        <p>Diabetes is a chronic disease that occurs either when the pancreas does not produce enough insulin or when the body cannot effectively use the insulin it produces. Insulin is a hormone that regulates blood glucose. Hyperglycaemia, also called raised blood glucose or raised blood sugar, is a common effect of uncontrolled diabetes and over time leads to serious damage to many of the body's systems, especially the nerves and blood vessels.</p>
+                        <p>In 2014, 8.5% of adults aged 18 years and older had diabetes. In 2019, diabetes was the direct cause of 1.5 million deaths and 48% of all deaths due to diabetes occurred before the age of 70 years. Another 460 000 kidney disease deaths were caused by diabetes, and raised blood glucose causes around 20% of cardiovascular deaths.</p> 
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Signs and Symptoms:</b>
+                            <img style="max-width: 100px" src="https://static.vecteezy.com/system/resources/previews/002/594/161/non_2x/new-normal-caution-symptoms-after-coronavirus-disease-covid-19-blue-silhouette-icon-free-vector.jpg">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            <p>Symptoms of diabetes may occur suddenly. In type 2 diabetes, the symptoms can be mild and may take many years to be noticed.</p>
+                            <p>Symptoms of diabetes include:</p>
+                            <ul style="list-style-position: inside; text-align: left; display: inline-block;">
+                                <li>feeling very thirsty</li>
+                                <li>needing to urinate more often than usual</li>
+                                <li>blurred vision</li>
+                                <li>feeling tired</li>
+                                <li>losing weight unintentionally</li>
+                            </ul>
+                            <p>Over time, diabetes can damage blood vessels in the heart, eyes, kidneys and nerves.
+
+                                People with diabetes have a higher risk of health problems including heart attack, stroke and kidney failure.
+                                
+                                Diabetes can cause permanent vision loss by damaging blood vessels in the eyes.
+                                
+                                Many people with diabetes develop problems with their feet from nerve damage and poor blood flow. This can cause foot ulcers and may lead to amputation.  </p>
+                        </div>
+                    </div>
+                </div>
+            
+            
+
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Causes:</b>
+                            <img style="max-width: 70px" src="https://as1.ftcdn.net/v2/jpg/00/94/90/92/1000_F_94909257_JpAQ6fFEJbUlofffkZd9pQmDoFyMORKX.jpg">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            
+                            <p>To understand diabetes, it's important to understand how the body normally uses glucose.</p>
+                            <b>How insulin works</b>
+                            <p>Insulin is a hormone that comes from a gland behind and below the stomach (pancreas).</p>
+                            <ul style="list-style-position: inside;">
+                                <li>The pancreas releases insulin into the bloodstream.</li>
+                                <li>The insulin circulates, letting sugar enter the cells.</li>
+                                <li>Insulin lowers the amount of sugar in the bloodstream.</li>
+                                <li>As the blood sugar level drops, so does the secretion of insulin from the pancreas.</li>
+                                <li>Insulin is a hormone that comes from a gland behind and below the stomach (pancreas).</li> 
+                            </ul>
+                            <p>The exact cause of most types of diabetes is unknown. In all cases, sugar builds up in the bloodstream. This is because the pancreas doesn't produce enough insulin. Both type 1 and type 2 diabetes may be caused by a combination of genetic or environmental factors. It is unclear what those factors may be.</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        
+
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Prevention:</b>
+                            <img style="max-width: 90px" src="https://cdn-icons-png.flaticon.com/512/4310/4310387.png">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            <p>Lifestyle changes are the best way to prevent or delay the onset of type 2 diabetes.</p>
+                            <p>To help prevent type 2 diabetes and its complications, people should:</p>
+        
+                            <ul style="list-style-position: inside; text-align: left; display: inline-block;">
+                                <li>reach and keep a health body weight</li>
+                                <li>stay physically active with at least 30 minutes of moderate exercise each day</li>
+                                <li>eat a healthy diet and avoid sugar and saturated fat</li>
+                                <li>not smoke tobacco.</li>
+                            </ul>
+                        
+                        </div>
+                    </div>
+                </div>
+            
+            
+
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Treatment:</b>
+                            <img style="max-width: 100px" src="https://www.efsanemed.com/wp-content/uploads/2021/06/doctor.png">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            <p>Early diagnosis can be accomplished through relatively inexpensive testing of blood glucose. People with type 1 diabetes need insulin injections for survival.</p>
+                            <p>One of the most important ways to treat diabetes is to keep a healthy lifestyle.</p>
+                            <p>Some people with type 2 diabetes will need to take medicines to help manage their blood sugar levels. These can include insulin injections or other medicines. Some examples include:</p>
+                            <ul style="list-style-position: inside;">
+                                <li>metformin</li>
+                                <li>sulfonylureas</li>
+                                <li>sodium-glucose co-transporters type 2 (SGLT-2) inhibitors.</li>
+                            </ul>
+                            <p>Additional medical care may be needed to treat the effects of diabetes:</p>
+                            <ul style="list-style-position: inside;">
+                                <li>foot care to treat ulcers</li>
+                                <li>screening and treatment for kidney disease</li>
+                                <li>eye exams to screen for retinopathy (which causes blindness).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        
+
+
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Nutrition:</b>
+                            <img style="max-width: 90px" src="https://res.cloudinary.com/dcrupowic/image/upload/v1723494367/me9bjdfh_yxybsh.png">
+                        </h5>
+                        <h5 style="margin-top: 20px;"><b>Recommended Foods</b></h5>
+                        <div style="display: inline-block; text-align: left;">
+                            <h6>Make your calories count with nutritious foods. Choose healthy carbohydrates, fiber-rich foods, fish and "good" fats.</h6>
+                            <h7><b>Healthy carbohydrates</b></h7>
+                            <ul style="list-style-position: inside;">
+                                <li>Fruits</li>
+                                <li>Vegetables</li>
+                                <li>Whole grains</li>
+                                <li>Legumes, such as beans and peas.</li>
+                                <li>Low-fat dairy products, such as milk and cheese.</li>
+                            </ul>
+                            <h7><b>Fiber-rich foods</b></h7>
+                            <ul style="list-style-position: inside;">
+                                <li>Vegetables.</li> 
+                                <li>Fruits. For the most fiber benefit, eat whole fruits rather than drinking fruit juice.</li>
+                                <li>Nuts.</li> 
+                                <li>Legumes, such as beans and peas.</li>
+                                <li>Whole grains.</li>
+                            </ul>
+                            <h7><b>Heart-Healthy fish</b></h7>
+                            <p></p>
+                            <h7><b>Good Fats</b></h7>
+                            <ul style="list-style-position: inside;">
+                                <li>Avocados.</li>
+                                <li>Nuts.</li>
+                                <li>Canola, olive and peanut oils.</li>
+
+                            </ul>
+                            <h5 style="margin-top: 20px;"><b>Foods to avoid:</b></h5>
+                            <ul style="list-style-position: inside;">
+                                <li>Saturated fats.</li>
+                                <li>Trans fats.</li>
+                                <li>Cholesterol.</li>
+                                <li>Sodium.</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+            
+
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Medication:</b>
+                            <img style="max-width: 90px" src="https://cdn2.iconfinder.com/data/icons/medical-flat-icons-part-1/513/1-1024.png">
+                        </h5>
+                        <div style="display: inline-block; text-align: left; width: 80%;">
+                            <p>Below is a list of common diabetes medications. Other medications are available too. Ask your health care provider about your choices and the pros and cons of each.
+
+                            </p>
+                            <h5><b>Medications you take by mouth</b></h5>
+                            <p>Meglitinides</p>
+                            <p>
+                                Common drugs: 
+                                <a href="https://www.apollopharmacy.in/medicine/sa-rapid-1mg-tablet-10s?doNotTrack=true" target="_blank">Repaglinide</a>, 
+                                <a href="https://www.apollopharmacy.in/medicine/glinate-60mg-tablet?doNotTrack=true" target="_blank">Nateglinide</a>, 
+                            </p>
+                            <p>Sulfonylureas</p>
+                            <p>
+                                Common drugs: 
+                                <a href="https://www.apollopharmacy.in/medicine/glucotrol-mf-capsule?doNotTrack=true" target="_blank">Glipizide (Glucotrol XL)</a>, 
+                                <a href="https://www.apollopharmacy.in/medicine/amaryl-2mg-tablet?doNotTrack=true" target="_blank">Glimepiride (Amaryl)</a>, 
+                                <a href="https://www.apollopharmacy.in/medicine/diabetrol-tablet?doNotTrack=true" target="_blank">Glyburide (DiaBeta, Glynase)</a>, 
+                            </p>
+                            <p>Dipeptidyl-peptidase 4 (DPP-4) inhibitors</p>
+                            <p>
+                                Common drugs: 
+                                <a href="https://www.apollopharmacy.in/medicine/kombiglyze-xr-5-500mg-tablet?doNotTrack=true" target="_blank">Saxagliptin (Onglyza)</a>, 
+                                <a href="https://www.apollopharmacy.in/medicine/sitazit-100mg-tab-10-s?doNotTrack=true" target="_blank">Sitagliptin (Januvia)</a>, 
+                                <a href="https://www.apollopharmacy.in/medicine/trajenta-5mg-tablet?doNotTrack=true" target="_blank">Linagliptin (Tradjenta)</a>, 
+                                <a href="https://www.apollopharmacy.in/medicine/aloja-25mg-tablet-10s?doNotTrack=true" target="_blank">Alogliptin (Nesina)</a>
+                            </p>
+                            <h6 style="margin-top: 20px;"><b>Medications you take as a shot</b></h6>
+                            <p>Amylin mimetics</p>
+                            <p>
+                                Common drugs: 
+                                <a href="https://www.apollopharmacy.in/medicine/symo-liv-tablet-10s?doNotTrack=true" target="_blank">Pramlintide (Symlin)</a>, 
+                                <a href="https://www.apollopharmacy.in/medicine/trulicity-0-75mg-injection?doNotTrack=true" target="_blank">Dulaglutide (Trulicity)</a>, 
+                                <a href="https://www.apollopharmacy.in/medicine/exapride-250mcg-injection-1-2ml?doNotTrack=true" target="_blank">Exenatide (Byetta, Bydureon Bcise)</a>, 
+                                <a href="https://www.apollopharmacy.in/medicine/victoza-prefilled-pen-3ml?doNotTrack=true" target="_blank">Liraglutide (Saxenda, Victoza)</a>
+                            </p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+
+        {% else %}
+
+
+            <div class="row">
+                <div class="col-md-12 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Healthy Living Recommendations </b>
+                            <img style="max-width: 100px" src="https://tiermaker.com/images/templates/7255581608722513.jpeg">
+                        </h5>
+                        <div style="display: inline-block; text-align: left; width: 80%;">
+                            
+                            <h6><b>1. Healthy Diet:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Eat a balanced diet rich in fruits, vegetables, whole grains, and lean proteins.</li>
+                                <li>Limit intake of processed and sugary foods.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>2. Regular Exercise:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Engage in regular physical activity like walking, jogging, or cycling for at least 30 minutes a day, five times a week.</li>
+                                <li>Include strength training exercises to maintain muscle mass.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>3. Regular Screenings:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Continue regular breast self-exams and mammograms as recommended.</li>
+                                <li>Schedule routine health check-ups to monitor overall well-being.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>4. Healthy Lifestyle Choices:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Avoid smoking and exposure to secondhand smoke.</li>
+                                <li>Limit alcohol consumption to reduce the risk of various diseases.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>5. Mental and Emotional Well-being:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Practice stress-reduction techniques like yoga, meditation, or deep breathing.</li>
+                                <li>Maintain strong social connections with family, friends, and support groups.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>6. Maintain a Healthy Weight:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Aim to achieve and maintain a healthy weight.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>7. Hormone Replacement Therapy (HRT) Considerations:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>If on HRT, discuss risks and benefits with your healthcare provider.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>8. Sun Protection:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Use sunscreen and protective clothing to reduce the risk of skin cancer.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>9. Adequate Sleep:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Ensure 7-8 hours of quality sleep per night.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>10. Vaccinations:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Ensure all recommended vaccinations are up to date, including the HPV vaccine.</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <p style="text-align: center;">Click <a href="https://www.mayoclinic.org/diseases-conditions/diabetes/symptoms-causes/syc-20371444">here</a> to learn more about Diabetes</p>
+        <p style="text-align: center;">&copy;healthapp.com</p>
+    </div>
+    <br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-primary btn-lg" id="download">Download</button>
+</body>
+</html>

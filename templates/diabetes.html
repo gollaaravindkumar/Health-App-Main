@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="https://th.bing.com/th/id/OIP.fGbtLh7QYNd4_TuIqPB9_QHaHa?rs=1&pid=ImgDetMain">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+	<title>Health App | Diabetes Prediction</title>
+</head>
+<style>
+    *{
+    margin:0;
+    padding:0;
+    font-family: 'Josefin Sans', sans-serif;
+    }
+    html,
+    body,
+    header,
+    #intro {
+    height: 100%;
+    }
+    img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    }
+    </style>
+<body>
+
+	<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <a class="navbar-brand" href="#"><b>Health App</b></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/dashboard">Get Started</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/disindex">Disease Index</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cancer">Breast Cancer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/diabetes">Diabetes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/heart">Heart Disease</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/kidney">Kidney Disease</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/liver">Liver Disease</a>
+                    </li>
+                    <li class="nav-item">
+		                <a class="nav-link" href="#">|</a>
+		            </li>
+                    <li class="nav-item">
+		                <a class="nav-link" href="/logout">Logout</a>
+		            </li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="intro" class="container-fluid view ">
+                <h1 class="text-center text-capitalize pt-5">Know your chances of getting diabetes in one Click!</h1>
+                <hr class="w-75 mx-auto pt-5">
+                <div class="row mb-5">
+                  <div class="col-lg-6 col-md-6 col-12 my-auto">
+                    <img src="../static/img/diabetes.jpg" class="float-left">
+        
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-12">
+                    <form action="{{ url_for('predictdiabetes')}}" method="post">
+                      <div class="form-group">
+                        <!-- TODO : Year to accept only year date picker -->
+                        <label for="Pregnancies">No. of Pregnencies</label>
+                        <input class="form-control" type="number" id="Pregnancies" name="Pregnancies" required="required" placeholder="No. of Pregnencies">
+                      </div>
+                      <div class="form-group">
+                        <label for="Glucose">Glucose Level</label>
+                        <input class="form-control" type="number" step="any" id="Glucose" name="Present_Price" required="required" placeholder="Glucose Level">
+                      </div>
+                      <div class="form-group">
+                        <label for="BloodPressure">Current Blood Pressure</label>
+                        <input class="form-control" type="number" id="BloodPressure" name="BloodPressure" required="required" placeholder="Current Blood Pressure">
+                      </div>
+                      <div class="form-group">
+                        <label for="BMI">Enter the Body Mass Index</label>
+                        <input class="form-control" type="number" id="BMI" name="BMI" required="required" placeholder="Body Mass Index">
+                      </div>
+                      <div class="form-group">
+                        <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function</label>
+                        <input class="form-control" type="number" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" required="required" placeholder="Diabetes Pedigree Function">
+                      </div>
+                      <div class="form-group">
+                        <label for="Age">Age</label>
+                        <input class="form-control" type="number" id="Age" name="Age" required="required" placeholder="Age">
+                      </div>
+                      
+                      
+                      
+                      <button type="submit" class="btn btn-danger">Predict</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!--/.Mask-->
+            </header>
+            <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+	</div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

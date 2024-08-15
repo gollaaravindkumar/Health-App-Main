@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<p lang="en">
+<head>
+    <title>HealthApp | Assessment</title>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://th.bing.com/th/id/OIP.fGbtLh7QYNd4_TuIqPB9_QHaHa?rs=1&pid=ImgDetMain">
+    
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <script type="text/javascript" language="JavaScript">
+    window.onload = function () {
+    document.getElementById("download")
+        .addEventListener("click", () => {
+            const invoice = this.document.getElementById("assess");
+            console.log(invoice);
+            console.log(window);
+            var opt = {
+                margin: 1,
+                filename: 'Cancer_Assessment.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+            };
+            html2pdf().from(invoice).set(opt).save();
+        })
+   }</script>
+    <style>
+        body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #5a5a5a;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background-color: rgb(181,211,227);
+}
+
+nav {
+    font-family: sans-serif;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.container {
+    max-width: 960px;
+}
+
+.pricing-header {
+    max-width: 700px;
+}
+
+.card-deck .card {
+    min-width: 220px;
+}
+
+.themed-container {
+    padding: 15px;
+    margin-bottom: 30px;
+    background-color: white;
+    border: 1px solid rgba(0, 123, 255, .2);
+}
+.rounded-lg {
+    border-radius: 1rem;
+    text-align: center;
+    background-color: rgba(0, 123, 255, .15);
+    border: 1px solid rgba(0, 123, 255, .2);
+   margin: 0px 20px 20px 20px; /* Add this line */
+    padding: 20px; /* Optional: Adds padding inside the container */
+}
+
+    </style>
+</head>
+<body>
+    <div id="assess">
+        
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <h1 class="display-5">Health and Wellness 
+                {% if high_risk %}
+                    <img style="max-width: 100px" src="https://www.pngmart.com/files/21/Red-Alert-PNG-Clipart.png">
+                {% endif %}
+            </h1>
+            <p class="lead">Maintain a healthy lifestyle to reduce future risks</p>
+        </div>
+        <div class="container themed-container">
+            <h1 style="text-align: center;">{{prediction_text}}</h1>
+        </div>
+
+        {% if high_risk %}
+            <div class="row">
+            <!-- Image Section -->
+            
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;">
+                        <img  style="height: 100%; width: 100%;" src="https://res.cloudinary.com/dcrupowic/image/upload/v1723743971/mcdc7_diseased_kidney-8col_lcrr1v.jpg" /><br/><br/>
+                    </div>
+                </div>
+
+                 <!-- Description Section -->
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;">
+                        <h5><b>Brief Description:</b></h5>
+                        <p>Chronic kidney disease, also called chronic kidney failure, involves a gradual loss of kidney function. Your kidneys filter wastes and excess fluids from your blood, which are then removed in your urine. Advanced chronic kidney disease can cause dangerous levels of fluid, electrolytes and wastes to build up in your body.</p>
+                        <p>In the early stages of chronic kidney disease, you might have few signs or symptoms. You might not realize that you have kidney disease until the condition is advanced.</p>
+                        <p>Treatment for chronic kidney disease focuses on slowing the progression of kidney damage, usually by controlling the cause. But, even controlling the cause might not keep kidney damage from progressing. Chronic kidney disease can progress to end-stage kidney failure, which is fatal without artificial filtering (dialysis) or a kidney transplant.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Signs and Symptoms:</b>
+                            <img style="max-width: 100px" src="https://static.vecteezy.com/system/resources/previews/002/594/161/non_2x/new-normal-caution-symptoms-after-coronavirus-disease-covid-19-blue-silhouette-icon-free-vector.jpg">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            <p>Signs and symptoms of chronic kidney disease develop over time if kidney damage progresses slowly. Loss of kidney function can cause a buildup of fluid or body waste or electrolyte problems. Depending on how severe it is, loss of kidney function can cause:</p>
+                           
+                            <ul style="list-style-position: inside; text-align: left; display: inline-block;">
+                                <li>Nausea</li>
+                                <li>Vomiting</li>
+                                <li>Loss of appetite</li>
+                                <li>Fatigue and weakness</li>
+                                <li>Sleep problems</li>
+                                <li>Urinating more or less</li>
+                                <li>Decreased mental sharpness</li>
+                                <li>Muscle cramps</li>
+                                <li>Swelling of feet and ankles</li>
+                                <li>Dry, itchy skin</li>
+                                <li>High blood pressure (hypertension) that's difficult to control</li>
+                                <li>Shortness of breath, if fluid builds up in the lungs</li>
+                                <li>Chest pain, if fluid builds up around the lining of the heart</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+            
+
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Causes:</b>
+                            <img style="max-width: 150px" src="https://res.cloudinary.com/dcrupowic/image/upload/v1723744361/pngtree-chronic-kidney-disease-concept-icon-cause-function-thin-vector-picture-image_10987732_zaj18r.png">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            
+                            <p>Diseases and conditions that cause chronic kidney disease include:</p>
+                            <ul style="list-style-position: inside;">
+                                <li>Type 1 or type 2 diabetes</li>
+                                <li>High blood pressure</li>
+                                <li>Glomerulonephritis (gloe-mer-u-low-nuh-FRY-tis), an inflammation of the kidney's filtering units (glomeruli)</li>
+                                <li>Interstitial nephritis (in-tur-STISH-ul nuh-FRY-tis), an inflammation of the kidney's tubules and surrounding structures</li>
+                                <li>Polycystic kidney disease or other inherited kidney diseases</li>
+                                <li>Prolonged obstruction of the urinary tract, from conditions such as enlarged prostate, kidney stones, and some cancers</li>
+                                <li>Vesicoureteral (ves-ih-koe-yoo-REE-tur-ul) reflux, a condition that causes urine to back up into your kidneys</li>
+                                <li>Recurrent kidney infection, also called pyelonephritis (pie-uh-low-nuh-FRY-tis)</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        
+
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Prevention:</b>
+                            <img style="max-width: 90px" src="https://cdn-icons-png.flaticon.com/512/4310/4310387.png">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            <h5><b>Maintain a healthy weight.</b></h5>
+                            <p>If you're at a healthy weight, maintain it by being physically active most days of the week. If you need to lose weight, talk with your doctor about strategies for healthy weight loss.</p>
+                            <h5><b>Don't smoke.</b></h5>
+                            <p>Cigarette smoking can damage your kidneys and make existing kidney damage worse. If you're a smoker, talk to your doctor about strategies for quitting. Support groups, counseling and medications can all help you to stop.</p>
+                            <h5><b>Manage your medical conditions with your doctor's help.</b></h5>
+                            <p>If you have diseases or conditions that increase your risk of kidney disease, work with your doctor to control them. Ask your doctor about tests to look for signs of kidney damage.</p>
+                           
+                        
+                        </div>
+                    </div>
+                </div>
+            
+            
+
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Treatment:</b>
+                            <img style="max-width: 150px" src="https://res.cloudinary.com/dcrupowic/image/upload/v1723745411/ds01047_-my00088_-my01223_im04229_mcdc7_kidney_biopsythu_jpg_g2f58s.jpg">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            <h5><b>For end-stage kidney disease</b></h5>
+                            <p>If your kidneys can't keep up with waste and fluid clearance on their own and you develop complete or near-complete kidney failure, you have end-stage kidney disease. At that point, you need dialysis or a kidney transplant.</p>
+                            <h5><b>Dialysis.</b></h5>
+                            <p>Dialysis artificially removes waste products and extra fluid from your blood when your kidneys can no longer do this. In hemodialysis, a machine filters waste and excess fluids from your blood.</p>
+                            <p>In peritoneal dialysis, a thin tube inserted into your abdomen fills your abdominal cavity with a dialysis solution that absorbs waste and excess fluids. After a time, the dialysis solution drains from your body, carrying the waste with it.</p>
+                            <h5><b>Kidney transplant.</b></h5>
+                            <p>A kidney transplant involves surgically placing a healthy kidney from a donor into your body. Transplanted kidneys can come from deceased or living donors.</p>
+                            <p>After a transplant, you'll need to take medications for the rest of your life to keep your body from rejecting the new organ. You don't need to be on dialysis to have a kidney transplant.</p>
+                            
+                            
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        
+
+
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Nutrition:</b>
+                            <img style="max-width: 90px" src="https://res.cloudinary.com/dcrupowic/image/upload/v1723494367/me9bjdfh_yxybsh.png">
+                        </h5>
+                        
+                        <div style="display: inline-block; text-align: left;">
+                            <h6><b>Avoid products with added salt.</b></h6>
+                            <p>Lower the amount of sodium you eat each day by avoiding products with added salt, including many convenience foods, such as frozen dinners, canned soups and fast foods. Other foods with added salt include salty snack foods, canned vegetables, and processed meats and cheeses.</p>
+                            <h6><b>Choose lower potassium foods.</b></h6>
+                            <p>High-potassium foods include bananas, oranges, potatoes, spinach and tomatoes. Examples of low-potassium foods include apples, cabbage, carrots, green beans, grapes and strawberries. Be aware that many salt substitutes contain potassium, so you generally should avoid them if you have kidney failure.</p>
+                            <h6><b>Limit the amount of protein you eat. </b></h6>
+                            <p>Your registered dietitian will estimate how many grams of protein you need each day and make recommendations based on that amount. High-protein foods include lean meats, eggs, milk, cheese and beans. Low-protein foods include vegetables, fruits, breads and cereals.</p>
+                            
+                        </div>
+                    
+                       
+                    </div>
+                </div>
+            
+            
+
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Medication:</b>
+                            <img style="max-width: 100px" src="https://cdn2.iconfinder.com/data/icons/medical-flat-icons-part-1/513/1-1024.png">
+                        </h5>
+                        
+                            <h6>The medications listed below are related to or used in the treatment of this condition.</h6>
+                            <h6><b>Common drugs: </b></h6>
+                            <p>
+                                
+                                <a href="https://www.apollopharmacy.in/medicine/forxiga-10mg-tablet?doNotTrack=true" target="_blank">Farxiga</a> - Farxiga prevents the reabsorption of glucose in the kidneys, increasing how much is excreted in the urine.</p> 
+                            <p> <a href="https://www.apollopharmacy.in/medicine/kerendia-10mg-tab-14-s?doNotTrack=true" target="_blank">Kerendia</a> - Kerendia is used to slow down kidney damage, and also to reduce the risk of kidney failure, cardiovascular death, heart attack and being hospitalized for heart failure. </p>
+                            <p> <a href="https://www.apollopharmacy.in/medicine/dapagain-10mg-tab-15-s?doNotTrack=true" target="_blank">Dapagliflozin</a> - Dapagliflozin is a sodium-glucose cotransporter 2 (SGLT2) inhibitor. This class of drug uses the kidneys to help control your glucose (blood sugar) levels. </p>
+                            <p> <a href="https://www.apollopharmacy.in/medicine/kerendia-20-mg-tablet-14-s?doNotTrack=true" target="_blank">Finerenone</a> - Finerenone is used in adults with chronic kidney disease related to diabetes mellitus type 2. </p>
+                            <p> <a href="https://www.apollopharmacy.in/medicine/jardiance-25mg-tablet?doNotTrack=true" target="_blank">Jardiance</a> - Jardiance 10mg tablets are also used for chronic kidney disease (CKD) in adults that have risk of disease prgression. In CKD Jardiance is used to reduce the risk of sustained decline in estimated glomerular filtration rate (eGFR), end-stage kidney disease, cardiovascular death and hospitalization. </p>
+                            <p> <a href="https://www.apollopharmacy.in/medicine/jardiance-25mg-tablet?doNotTrack=true" target="_blank">Empagliflozin</a> - Empagliflozin is also used to lower the risk of death from heart attack, stroke, or heart failure in adults with type 2 diabetes who also have heart disease. </p>
+                            
+                
+                            
+                            
+                    </div>
+                </div> 
+            </div>
+
+        {% else %}
+
+
+            <div class="row">
+                <div class="col-md-12 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Healthy Living Recommendations </b>
+                            <img style="max-width: 100px" src="https://tiermaker.com/images/templates/7255581608722513.jpeg">
+                        </h5>
+                        <div style="display: inline-block; text-align: left; width: 80%;">
+                            
+                            <h6><b>1. Healthy Diet:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Eat a balanced diet rich in fruits, vegetables, whole grains, and lean proteins.</li>
+                                <li>Limit intake of processed and sugary foods.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>2. Regular Exercise:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Engage in regular physical activity like walking, jogging, or cycling for at least 30 minutes a day, five times a week.</li>
+                                <li>Include strength training exercises to maintain muscle mass.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>3. Regular Screenings:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Continue regular breast self-exams and mammograms as recommended.</li>
+                                <li>Schedule routine health check-ups to monitor overall well-being.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>4. Healthy Lifestyle Choices:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Avoid smoking and exposure to secondhand smoke.</li>
+                                <li>Limit alcohol consumption to reduce the risk of various diseases.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>5. Mental and Emotional Well-being:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Practice stress-reduction techniques like yoga, meditation, or deep breathing.</li>
+                                <li>Maintain strong social connections with family, friends, and support groups.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>6. Maintain a Healthy Weight:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Aim to achieve and maintain a healthy weight.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>7. Hormone Replacement Therapy (HRT) Considerations:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>If on HRT, discuss risks and benefits with your healthcare provider.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>8. Sun Protection:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Use sunscreen and protective clothing to reduce the risk of skin cancer.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>9. Adequate Sleep:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Ensure 7-8 hours of quality sleep per night.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>10. Vaccinations:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Ensure all recommended vaccinations are up to date, including the HPV vaccine.</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <p style="text-align: center;">Click <a href="https://www.mayoclinic.org/diseases-conditions/chronic-kidney-disease/symptoms-causes/syc-20354521">here</a> to learn more about Kidney Disease</p>
+        <p style="text-align: center;">&copy;healthapp.com</p>
+    </div>
+    <br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-primary btn-lg" id="download">Download</button>
+</body>
+</html>

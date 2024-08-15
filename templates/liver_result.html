@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<p lang="en">
+<head>
+    <title>HealthApp | Assessment</title>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://th.bing.com/th/id/OIP.fGbtLh7QYNd4_TuIqPB9_QHaHa?rs=1&pid=ImgDetMain">
+    
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <script type="text/javascript" language="JavaScript">
+    window.onload = function () {
+    document.getElementById("download")
+        .addEventListener("click", () => {
+            const invoice = this.document.getElementById("assess");
+            console.log(invoice);
+            console.log(window);
+            var opt = {
+                margin: 1,
+                filename: 'Cancer_Assessment.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+            };
+            html2pdf().from(invoice).set(opt).save();
+        })
+   }</script>
+    <style>
+        body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #5a5a5a;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background-color: rgb(181,211,227);
+}
+
+nav {
+    font-family: sans-serif;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.container {
+    max-width: 960px;
+}
+
+.pricing-header {
+    max-width: 700px;
+}
+
+.card-deck .card {
+    min-width: 220px;
+}
+
+.themed-container {
+    padding: 15px;
+    margin-bottom: 30px;
+    background-color: white;
+    border: 1px solid rgba(0, 123, 255, .2);
+}
+.rounded-lg {
+    border-radius: 1rem;
+    text-align: center;
+    background-color: rgba(0, 123, 255, .15);
+    border: 1px solid rgba(0, 123, 255, .2);
+   margin: 0px 20px 20px 20px; /* Add this line */
+    padding: 20px; /* Optional: Adds padding inside the container */
+}
+
+    </style>
+</head>
+<body>
+    <div id="assess">
+        
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <h1 class="display-5">Health and Wellness 
+                {% if high_risk %}
+                    <img style="max-width: 100px" src="https://www.pngmart.com/files/21/Red-Alert-PNG-Clipart.png">
+                {% endif %}
+            </h1>
+            <p class="lead">Maintain a healthy lifestyle to reduce future risks</p>
+        </div>
+        <div class="container themed-container">
+            <h1 style="text-align: center;">{{prediction_text}}</h1>
+        </div>
+
+        {% if high_risk %}
+            <div class="row">
+            <!-- Image Section -->
+            
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;">
+                        <img  style="height: 100%; width: 100%;" src="https://longislandtreatmentcenters.com/wp-content/uploads/2021/10/signs-of-liver-disease.jpg" /><br/><br/>
+                    </div>
+                </div>
+
+                 <!-- Description Section -->
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%;">
+                        <h5><b>Brief Description:</b></h5>
+                        <p>The liver is an organ that sits just under the rib cage on the right side of the abdomen. It can weigh up to 4 pounds (1.8 kilograms). The liver is needed to help digest food, rid the body of waste products and make substances, called clotting factors, that keep the blood flowing well, among other tasks.</p>
+                        <p>Liver disease can be passed through families, called inherited. Anything that damages the liver also can cause liver problems, including viruses, alcohol use and obesity.</p>
+                        <p>Over time, conditions that damage the liver can lead to scarring, called cirrhosis. Cirrhosis can lead to liver failure, a life-threatening condition. But early treatment may give the liver time to heal.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Signs and Symptoms:</b>
+                            <img style="max-width: 100px" src="https://static.vecteezy.com/system/resources/previews/002/594/161/non_2x/new-normal-caution-symptoms-after-coronavirus-disease-covid-19-blue-silhouette-icon-free-vector.jpg">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            <p>Liver disease doesn't always cause symptoms that can be seen or felt.</p>
+                            <p>If there are symptoms of liver disease, they may include:</p>
+                            <ul style="list-style-position: inside; text-align: left; display: inline-block;">
+                                <li>Yellowing of the skin and the whites of the eyes, called jaundice. Yellowing of the skin might be harder to see on Black or brown skin</li>
+                                <li>Belly pain and swelling</li>
+                                <li>Swelling in the legs and ankles</li>
+                                <li>Itchy skin</li>
+                                <li>Dark urine</li>
+                                <li>Pale stool</li>
+                                <li>Constant tiredness</li>
+                                <li>Nausea or vomiting</li>
+                                <li>Loss of appetite</li>
+                                <li>Bruising easily</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            
+            
+
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Causes:</b>
+                            <img style="max-width: 100px" src="https://res.cloudinary.com/dcrupowic/image/upload/v1723749699/0joefs4f_wl6fkj.png">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            
+                            <p>Liver disease has many causes.</p>
+                            <ul style="list-style-position: inside;">
+                                <li>Infection</li>
+                                <li>Immune system condition</li>
+                                <li>Genetics</li>
+                                <li>Long-term alcohol use</li>
+                                <li>Fat that builds up in the liver, called nonalcoholic fatty liver disease or metabolic-associated steatotic liver disease</li>
+                                <li>Certain prescription or other medicines</li>
+                                <li>Certain herbal mixes</li>
+                                <li>Being in contact often with toxic chemicals</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        
+
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Prevention:</b>
+                            <img style="max-width: 90px" src="https://cdn-icons-png.flaticon.com/512/4310/4310387.png">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            <p>Preventive measures involves healthy habits such as:</p>
+        
+                            <ul style="list-style-position: inside;">
+                                <li>If you choose to drink alcohol, do so in moderation</li>
+                                <li>Avoid risky behavior</li>
+                                <li>Get vaccinated</li>
+                                <li>Be careful when taking medicines</li>
+                                <li>Stay away from other people's blood and body fluids</li>
+                                <li>Keep your food safe</li>
+                                <li>Take care with aerosol sprays</li>
+                                <li>Protect your skin</li>
+                                <li>Maintain a healthy weight</li>
+                            </ul>
+                        
+                        </div>
+                    </div>
+                </div>
+            
+            
+
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Treatment:</b>
+                            <img style="max-width: 100px" src="https://www.efsanemed.com/wp-content/uploads/2021/06/doctor.png">
+                        </h5>
+                        <div style="display: inline-block; text-align: left;">
+                            <p>Treatment for liver disease depends on the diagnosis. Some liver problems can be treated with lifestyle changes. These might include losing weight or not drinking alcohol. These changes often are part of a medical program that includes watching liver function.</p>
+                            <p>Other liver problems may be treated with medicines or surgery.</p>
+                            <p>Liver disease that causes liver failure may need a liver transplant.</p>
+                            
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        
+
+
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Nutrition:</b>
+                            <img style="max-width: 90px" src="https://res.cloudinary.com/dcrupowic/image/upload/v1723494367/me9bjdfh_yxybsh.png">
+                        </h5>
+                        
+                        <div style="display: inline-block; text-align: left;">
+                            
+                            <ul style="list-style-position: inside;">
+                                <li>Eat food with fiber, such as fruits, vegetables, whole grains, and cereals, to help your liver work better</li>
+                                <li>Drink lots of water to prevent dehydration and flush out toxins</li>
+                                <li>Eat a moderate amount of protein, about 1 gram per kilogram of body weight, to prevent muscle wasting and malnutrition</li>
+                                <li>Eat a moderate amount of fat, as prescribed by your provider, to avoid fat malabsorption and provide energy</li>
+                                <li>Take vitamin supplements, especially B-complex vitamins and vitamin D, to prevent deficiencies and support liver function</li>
+                            </ul>
+                           
+                        </div>
+                    
+                        
+                    </div>
+                </div>
+            
+            
+
+                <div class="col-md-6 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Medication:</b>
+                            <img style="max-width: 100px" src="https://cdn2.iconfinder.com/data/icons/medical-flat-icons-part-1/513/1-1024.png">
+                        </h5>
+                        <p style="display: inline-block; text-align: left; width: 80%;">
+                            
+                            <h6><b>Common drugs:</b></h6>
+                            <p>
+                                 
+                                <a href="https://www.apollopharmacy.in/medicine/poinmeth-400mg-tab?doNotTrack=true" target="_blank">Ademetionine</a> - Ademetionine is used for treating chronic liver disease such as intrahepatic cholestasis, a condition related to reduced bile flow resulting in accumulation </p> 
+                            <p> <a href="https://www.apollopharmacy.in/medicine/viboliv-500mg-tablet?doNotTrack=true" target="_blank">Metadoxine</a> - Metadoxine is a hepatoprotective agent, prescribed for the treatment of fatty liver due to alcoholism. </p>
+                            <p> <a href="https://www.apollopharmacy.in/medicine/tilemetin-60mg-injection?doNotTrack=true" target="_blank">Dehydroemetine</a> - Dehydroemetine is classified as an antiprotozoal agent.</p> 
+                            <p> <a href="https://www.apollopharmacy.in/medicine/entavir-0-5mg-tablet?doNotTrack=true" target="_blank">Entecavir</a> - Entecavir is an oral antiviral agent, prescribed for hepatitis B. </p>
+                            </p>
+                            <p><a href="https://www.apollopharmacy.in/otc/setbrain-60mg-tablet-10-s?doNotTrack=true" target="_blank">Methionine</a> - Methionine is an amino acid.</p>
+                            
+                    </div>
+                </div> 
+            </div>
+
+        {% else %}
+
+
+            <div class="row">
+                <div class="col-md-12 mx-auto">
+                    <div class="p-5 bg-white shadow rounded-lg" style="height: 95%; text-align: center;">
+                        <h5><b>Healthy Living Recommendations </b>
+                            <img style="max-width: 100px" src="https://tiermaker.com/images/templates/7255581608722513.jpeg">
+                        </h5>
+                        <div style="display: inline-block; text-align: left; width: 80%;">
+                            
+                            <h6><b>1. Healthy Diet:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Eat a balanced diet rich in fruits, vegetables, whole grains, and lean proteins.</li>
+                                <li>Limit intake of processed and sugary foods.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>2. Regular Exercise:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Engage in regular physical activity like walking, jogging, or cycling for at least 30 minutes a day, five times a week.</li>
+                                <li>Include strength training exercises to maintain muscle mass.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>3. Regular Screenings:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Continue regular breast self-exams and mammograms as recommended.</li>
+                                <li>Schedule routine health check-ups to monitor overall well-being.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>4. Healthy Lifestyle Choices:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Avoid smoking and exposure to secondhand smoke.</li>
+                                <li>Limit alcohol consumption to reduce the risk of various diseases.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>5. Mental and Emotional Well-being:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Practice stress-reduction techniques like yoga, meditation, or deep breathing.</li>
+                                <li>Maintain strong social connections with family, friends, and support groups.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>6. Maintain a Healthy Weight:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Aim to achieve and maintain a healthy weight.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>7. Hormone Replacement Therapy (HRT) Considerations:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>If on HRT, discuss risks and benefits with your healthcare provider.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>8. Sun Protection:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Use sunscreen and protective clothing to reduce the risk of skin cancer.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>9. Adequate Sleep:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Ensure 7-8 hours of quality sleep per night.</li>
+                            </ul>
+                            
+                            <h6 style="margin-top: 20px;"><b>10. Vaccinations:</b></h6>
+                            <ul style="list-style-position: inside;">
+                                <li>Ensure all recommended vaccinations are up to date, including the HPV vaccine.</li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <p style="text-align: center;">Click <a href="https://www.mayoclinic.org/diseases-conditions/liver-problems/symptoms-causes/syc-20374502">here</a> to learn more about Liver Disease</p>
+        <p style="text-align: center;">&copy;healthapp.com</p>
+    </div>
+    <br/>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-primary btn-lg" id="download">Download</button>
+</body>
+</html>
